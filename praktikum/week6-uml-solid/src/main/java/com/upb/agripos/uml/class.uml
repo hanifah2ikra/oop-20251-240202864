@@ -1,0 +1,40 @@
+@startuml
+
+class Product {
+  -id: int
+  -name: String
+  -price: double
+  -stock: int
+}
+
+class User {
+  -id: int
+  -name: String
+  -role: String
+}
+
+class Transaction {
+  -id: int
+  -date: Date
+  -total: double
+}
+
+class Payment {
+  +pay(amount: double)
+}
+
+interface PaymentMethod {
+  +processPayment(amount: double)
+}
+
+class CashPayment
+class DigitalPayment
+
+PaymentMethod <|-- CashPayment
+PaymentMethod <|-- DigitalPayment
+
+Transaction "1" -- "*" Product
+Transaction "1" -- "1" User
+Transaction --> PaymentMethod
+
+@enduml

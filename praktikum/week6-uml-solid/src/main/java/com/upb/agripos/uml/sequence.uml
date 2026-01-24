@@ -1,0 +1,16 @@
+@startuml
+actor Kasir
+participant "POS UI" as UI
+participant "TransactionService" as TS
+participant "ProductService" as PS
+participant "PaymentService" as Pay
+
+Kasir -> UI : Input transaksi
+UI -> TS : createTransaction()
+TS -> PS : checkStock()
+PS --> TS : stok tersedia
+TS -> Pay : processPayment()
+Pay --> TS : pembayaran sukses
+TS -> UI : tampilkan struk
+
+@enduml

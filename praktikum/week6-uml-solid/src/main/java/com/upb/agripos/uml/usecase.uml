@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+
+actor Admin
+actor Kasir
+actor Petani
+actor Pelanggan
+
+rectangle "Agri-POS System" {
+  Admin -- (Kelola Produk)
+  Admin -- (Kelola Pengguna)
+  Admin -- (Lihat Laporan)
+
+  Kasir -- (Proses Transaksi)
+  Kasir -- (Cetak Struk)
+
+  Petani -- (Input Hasil Panen)
+  Petani -- (Cek Stok)
+
+  Pelanggan -- (Beli Produk)
+  Pelanggan -- (Lihat Riwayat Transaksi)
+}
+@enduml

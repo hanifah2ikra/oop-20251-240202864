@@ -1,0 +1,21 @@
+@startuml
+title Activity Diagram Transaksi Penjualan Agri-POS
+
+start
+
+:Kasir Login;
+:Pilih Produk;
+:Input Jumlah;
+
+if (Stok tersedia?) then (Ya)
+  :Hitung Total Harga;
+  :Pilih Metode Pembayaran;
+  :Proses Pembayaran;
+  :Cetak Struk;
+  :Update Stok;
+else (Tidak)
+  :Tampilkan Pesan\n"Stok Tidak Cukup";
+endif
+
+stop
+@enduml
